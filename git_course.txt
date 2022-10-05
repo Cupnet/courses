@@ -75,4 +75,32 @@ CREAZIONE GIT
   COMMIT
     Questo è il comando per poter eseguire un commit con un messaggio:
     'git commit -m "Initial Commit" 
+
+    N.B. PER CONVENZIONE SI USANO I VERBI AL TEMPO PRESENTE QUANDO SI COMMENTA IL COMMIT,
+         COME AD ESEMPIO "fix the bug" E NON "fixed the bug"
+
+  -ALL
+    Con l'aggiunta -a possiamo committare tutto il codice senza avere la necessità di aggiungerlo
+    alla Staging Area: 'git commit -a -m "commit"'
+
+
+  ELIMINAZIONE FILES 
+
+    GIT RM
+    Utilizziamo "git rm" per eliminare uno o più file/directory sia nella Staging Area che nel commit:
+      "git rm *.txt -m "Remove all txt files"
+
+  RIMOZIONE FILES 
   
+    GIT MV
+    Per rinominare un file utilizziamo "mv" (come su linux):
+      "git mv nomevecchio.txt nomenuovo.txt"
+
+
+GIT IGNORE
+  Utilizziamo .gitignore per ignorare files che potrebbero pesare inutilmente sul nostro repository
+  (come ad esempio i logs, che vengono generati ad ogni avvio del programma)
+  Esempio (vogliamo aggiungere la cartella logs e tutti i files.log):
+    "echo logs > .gitignore"
+    "code .gitignore"
+    (una volta aperto con vsCode il file ".gitignore", andare in un'altra riga e scrivere *.logs"
