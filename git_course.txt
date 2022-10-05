@@ -1,0 +1,78 @@
+Account: Cupaiolo00@gmail.com
+psw  Cupnet969*
+link git : https://github.com/Cupnet/courses.git
+
+
+NOTA AGGIUNTIVA: per avere la console colorata per rendere git più leggibile, scaricare 
+'posh-git'
+
+COS'è?
+Git è il sistema di controllo versione più conosciuto al mondo. Un Version Control System (VCS)
+salva le modifiche di un codice in tempo reale in un database speciale chiamato "repository".
+Queste modifiche possono anche tornare ad una versione precedente. Senza un VCS saremmo
+costretti a creare una cartella contenente la versione del progetto per ogni modifica fatta, 
+moltiplicato per ogni persona che lavora su quel progetto
+
+Un VCS si divide in "Centralized" e "Distributed": 
+ > CENTRALIZED = Ogni persona che lavora al progetto si connette ad un progetto centrale
+    e lo modifica, rendendolo pubblico agli altri collaboratori. Ciò però comporta ad avere
+    il server HOST sempre funzionante, altrimenti non potrà essere possibile accedere al codice;
+ > DISTRIBUTED = ogni collaboratore ha una sua copia del codice nella propria macchina, e se
+    il server dovesse essere down, i collaboratori possono sincronizzare i codici locali
+    delle proprie macchine, come fanno ad esempio Git e Mercurial.
+
+CONFIGURAZIONE
+  Nella configurazione Git possiamo specificare :
+    - Nome;
+    - Email;
+    - Default Editor;
+    - Line ending.
+  Abbiamo 3 livelli di configurazione Git:
+    > System: per tutti gli utenti;
+    > Global: per tutti i repository dell'utente corrente;
+    > Local: repository corrente dell'utente corrente.
+
+  Ecco qui un esempio: 
+    'git config --global user.name "Alessandro Cupaiolo"'
+      // qui mettiamo le virgolette "" perchè la stringa contiene lo spazio
+    'git config --global user.email Cupaiolo00@gmail.com'
+      // qui non le mettiamo perchè la stringa è composta da un'unica parola
+
+  Adesso configuriamo l'editor default di Git:
+    'git config --global core.editor "code --wait"'
+      //con --wait diciamo al terminale di aspettare che l'istanza di code aperta venga chiusa.
+  
+  Possiamo modificare le impostazioni anche tramite il nostro editor predefinito:
+    'git config --global -e'
+
+  ENDLINE
+    In Windows, le endline vengono identificate con /r(a capo)/n(avanzamento di riga),
+    mentre in altri OS con /n.
+    Per far sì che sia globalmente omogeneo, dobbiamo modificare un'impostazione chiamata
+    'core.autocrlf' (che sta per auto Carriage Return Line Feed).
+      - se si è in Windows bisogna settarlo True: 'git config --global core.autocrlf true'
+      - in Mac o Linux su Input: 'git config --global core.autocrlf input'
+
+
+
+
+CREAZIONE GIT
+
+  Per creare un repository: 
+    'git init' all'interno della cartella ove posizionarlo. Questo farà si che venga creato
+    un file ".git" all'interno della cartella, che se eliminato, eliminerà il repository.
+
+  Staging Area
+    L'area Staging è un'area che si trova in mezzo tra repository online e file in cloud, in
+    pratica quando facciamo una modifica ad un file (ad esempio, file A), noi facciamo il 
+    comando 'git add A', e così facendo mettiamo il file A nello Staging Area e, 
+    dopo aver controllato che le modifiche siano ok, facciamo il commit. Dopo aver fatto
+    il commit, l'area Staging conterrà il contenuto dell'ultimo commit.
+
+    Esempio: 
+      'git add .' // aggiungi all'area staging tutta la directory in maniera ricorsiva.
+
+  COMMIT
+    Questo è il comando per poter eseguire un commit con un messaggio:
+    'git commit -m "Initial Commit" 
+  
