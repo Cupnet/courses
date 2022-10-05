@@ -104,3 +104,29 @@ GIT IGNORE
     "echo logs > .gitignore"
     "code .gitignore"
     (una volta aperto con vsCode il file ".gitignore", andare in un'altra riga e scrivere *.logs"
+
+
+STATUS
+
+  Eseguendo il comando "git status" possiamo visualizzare lo stato della nostra Staging Area e
+  della Working Directory, ma la lista appare poco leggibile, per questo esiste il parametro
+  optional "-s". 
+  I parametri assumono i seguenti valori:
+  - ? = file sconosciuto;
+  - M = file modificato;
+  - A = file aggiunto;
+  - D = file eliminato.
+  Questi valori vengono visualizzati a SINISTRA se si riferiscono alla STAGING AREA, a "destra"
+  se si riferiscono alla "working directory".
+  Vediamo un esempio:
+  > facciamo finta che nella nostra cartella aggiungiamo 2 file, ovvero file1.txt e file2.txt;
+  > facciamo "git status -s" e l'output sarà il seguente:
+      $ git status -s
+      ?? file1.txt
+      ?? file2.txt
+  > facciamo ora "git add file1.txt" e notiamo un cambiamento nella Staging Area di "file1.txt":
+      $ git add file1.txt
+      $ git status -s
+      M  file1.txt
+      ?? file2.txt
+      
